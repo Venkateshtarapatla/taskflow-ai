@@ -377,30 +377,6 @@ React UI
 
 This provides an inexpensive development environment and keeps AI inference local.
 
-📸 Screenshots
-
-Screenshots demonstrating the application will be added here.
-
-Dashboard
-
-Add dashboard screenshot here.
-
-AI Task Creation
-
-Add AI task creation screenshot here.
-
-AI Priority Analysis
-
-Add priority analysis screenshot here.
-
-Productivity Insights
-
-Add productivity insights screenshot here.
-
-Authentication
-
-Add login/register screenshot here.
-
 🗺️ Roadmap
 
 Potential future improvements include:
