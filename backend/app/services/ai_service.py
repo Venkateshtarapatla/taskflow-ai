@@ -1,9 +1,27 @@
 import json
+import os
 import re
+from pathlib import Path
 
-from ollama import chat
+from dotenv import load_dotenv
+from ollama import Client
 
-MODEL_NAME = "llama3.2:3b"
+BASE_DIR = Path(__file__).resolve().parents[2]
+load_dotenv(BASE_DIR / ".env")
+
+OLLAMA_BASE_URL = os.getenv(
+    "OLLAMA_BASE_URL",
+    "http://localhost:11434",
+)
+
+MODEL_NAME = os.getenv(
+    "OLLAMA_MODEL",
+    "llama3.2:3b",
+)
+
+ollama_client = Client(
+    host=OLLAMA_BASE_URL,
+)
 
 
 def _clean_json_response(content: str) -> dict:
@@ -34,7 +52,7 @@ def _clean_json_response(content: str) -> dict:
 
 
 def _chat_json(prompt: str) -> dict:
-    response = chat(
+    response = ollama_client.chat(
         model=MODEL_NAME,
         messages=[{"role": "user", "content": prompt}],
         options={
