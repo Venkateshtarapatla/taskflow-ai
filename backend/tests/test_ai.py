@@ -2,9 +2,8 @@ from uuid import uuid4
 
 from fastapi.testclient import TestClient
 
-from app.main import app
 import app.main as main_module
-
+from app.main import app
 
 client = TestClient(app)
 
