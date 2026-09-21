@@ -99,3 +99,4 @@ uvloop==0.22.1
 watchfiles==1.2.0
 
 websockets==17.1
+pytest==9.1.1
