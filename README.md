@@ -437,3 +437,27 @@ The project is designed as a practical demonstration of building an AI-assisted 
 📄 License
 
 This project is currently intended as a personal portfolio and learning project.
+
+---
+
+## 📸 Screenshots
+
+### 🔐 Login & Registration
+
+![TaskFlow AI Login](docs/screenshots/login-register.png)
+
+### 📊 Dashboard
+
+![TaskFlow AI Dashboard](docs/screenshots/dashboard.png)
+
+### ✨ AI Task Creation
+
+![AI Task Creation](docs/screenshots/03-ai-task-creation.png)
+
+### 🤖 AI Generated Task
+
+![AI Generated Task](docs/screenshots/04-ai-generated-task.png)
+
+### 🎯 AI Priority Suggestion
+
+![AI Priority Suggestion](docs/screenshots/05-ai-priority.png)
