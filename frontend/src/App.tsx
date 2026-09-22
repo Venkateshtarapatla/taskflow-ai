@@ -1098,17 +1098,21 @@ function App() {
 
                       <div className="task-title-row">
 
-                        <h3>
-                          {task.title}
-                        </h3>
+                        <div className="task-heading">
 
-                        <span
-                          className={`priority-badge ${task.priority}`}
-                        >
-                          {getPriorityLabel(
-                            task.priority
-                          )}
-                        </span>
+                          <h3>
+                            {task.title}
+                          </h3>
+
+                          <span
+                            className={`priority-badge ${task.priority}`}
+                          >
+                            {getPriorityLabel(
+                              task.priority
+                            )}
+                          </span>
+
+                        </div>
 
                       </div>
 
@@ -1126,12 +1130,10 @@ function App() {
                           onChange={(event) =>
                             changeTaskStatus(
                               task,
-                              event.target
-                                .value as Status
+                              event.target.value as Status
                             )
                           }
                         >
-
                           <option value="pending">
                             To Do
                           </option>
@@ -1143,7 +1145,6 @@ function App() {
                           <option value="completed">
                             Completed
                           </option>
-
                         </select>
 
                         <span className="task-date">
@@ -1163,50 +1164,53 @@ function App() {
 
                     <div className="task-actions">
 
-                      <button
-                        className="ai-priority-button"
-                        onClick={() =>
-                          openPriorityModal(
-                            task
-                          )
-                        }
-                        disabled={
-                          priorityLoading &&
-                          priorityTask?.id ===
-                            task.id
-                        }
-                      >
-                        ✨ AI Priority
-                      </button>
+                      <div className="task-ai-actions">
 
-                      <button
-                        className="breakdown-button"
-                        onClick={() =>
-                          openBreakdownModal(
-                            task
-                          )
-                        }
-                      >
-                        ✨ Break Down
-                      </button>
+                        <button
+                          className="ai-priority-button"
+                          onClick={() =>
+                            openPriorityModal(task)
+                          }
+                          disabled={
+                            priorityLoading &&
+                            priorityTask?.id === task.id
+                          }
+                        >
+                          ✨ AI Priority
+                        </button>
 
-                      <button
-                        className="edit-button"
-                        onClick={() =>
-                          openEditModal(task)
-                        }
-                      >
-                        Edit
-                      </button>
+                        <button
+                          className="breakdown-button"
+                          onClick={() =>
+                            openBreakdownModal(task)
+                          }
+                        >
+                          ✨ Break Down
+                        </button>
 
-                      <button
-                        className="delete-button"
-                        onClick={() =>
-                          deleteTask(task)
-                        }
-                      >
-                        Delete
-                      </button>
+                      </div>
+
+                      <div className="task-standard-actions">
+
+                        <button
+                          className="edit-button"
+                          onClick={() =>
+                            openEditModal(task)
+                          }
+                        >
+                          Edit
+                        </button>
+
+                        <button
+                          className="delete-button"
+                          onClick={() =>
+                            deleteTask(task)
+                          }
+                        >
+                          Delete
+                        </button>
+
+                      </div>
 
                     </div>
 
