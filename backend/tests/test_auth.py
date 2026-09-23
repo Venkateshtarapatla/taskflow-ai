@@ -1,18 +1,6 @@
-import os
-
-os.environ["DATABASE_URL"] = "sqlite:///./test_taskflow.db"
-
-import pytest
 from fastapi.testclient import TestClient
 
-from app.db.database import Base, engine
 from app.main import app
-
-
-@pytest.fixture(autouse=True)
-def reset_database():
-    Base.metadata.drop_all(bind=engine)
-    Base.metadata.create_all(bind=engine)
 
 
 client = TestClient(app)
@@ -33,6 +21,7 @@ def test_register_user():
 
     assert "access_token" in data
     assert data["token_type"] == "bearer"
+
 
 def test_login_user():
     register_response = client.post(

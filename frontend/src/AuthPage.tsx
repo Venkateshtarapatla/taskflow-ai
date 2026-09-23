@@ -50,9 +50,9 @@ function AuthPage({ onAuthenticated }: AuthPageProps) {
       return;
     }
 
-    if (password.length < 6) {
+    if (password.length < 8) {
       setError(
-        "Password must contain at least 6 characters.",
+        "Password must contain at least 8 characters.",
       );
       return;
     }
@@ -168,11 +168,9 @@ function AuthPage({ onAuthenticated }: AuthPageProps) {
                   Password
                 </label>
 
-                {isLogin && (
-                  <span className="auth-password-hint">
-                    Minimum 6 characters
-                  </span>
-                )}
+                <span className="auth-password-hint">
+                  Minimum 8 characters
+                </span>
               </div>
 
               <div className="auth-password-wrapper">
@@ -189,6 +187,8 @@ function AuthPage({ onAuthenticated }: AuthPageProps) {
                       ? "current-password"
                       : "new-password"
                   }
+                  minLength={8}
+                  maxLength={128}
                   disabled={loading}
                 />
 

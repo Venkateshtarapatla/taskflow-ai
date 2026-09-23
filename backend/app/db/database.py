@@ -6,22 +6,26 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 
 # ============================================================
-# ENVIRONMENT CONFIGURATION
+# DIRECTORY CONFIGURATION
 # ============================================================
 
-BASE_DIR = Path(__file__).resolve().parents[2]
+BACKEND_DIR = Path(__file__).resolve().parents[2]
+PROJECT_DIR = BACKEND_DIR.parent
 
-load_dotenv(BASE_DIR / ".env")
+load_dotenv(BACKEND_DIR / ".env")
 
 
 # ============================================================
 # DATABASE CONFIGURATION
 # ============================================================
 
-DATABASE_URL = os.getenv(
-    "DATABASE_URL",
-    "sqlite:///./taskflow.db",
-)
+configured_database_url = os.getenv("DATABASE_URL")
+
+if configured_database_url:
+    DATABASE_URL = configured_database_url
+else:
+    DATABASE_PATH = BACKEND_DIR / "taskflow.db"
+    DATABASE_URL = f"sqlite:///{DATABASE_PATH}"
 
 
 # ============================================================
