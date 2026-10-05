@@ -3,7 +3,6 @@ from pathlib import Path
 
 import pytest
 
-
 # ============================================================
 # TEST DATABASE CONFIGURATION
 # ============================================================
@@ -16,7 +15,6 @@ os.environ["DATABASE_URL"] = f"sqlite:///{TEST_DATABASE_PATH}"
 
 # Import database components only after DATABASE_URL is configured.
 from app.db.database import Base, engine  # noqa: E402
-
 
 # ============================================================
 # DATABASE RESET

@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
-from app.db.database import SessionLocal
+from app.db.database import Base, SessionLocal, engine
 from app.models.task import Task
 from app.models.user import User
 from app.schemas.auth import (
@@ -31,6 +31,8 @@ from app.services.auth_service import (
 # ============================================================
 
 app = FastAPI(title="TaskFlow AI")
+# Create any missing database tables at startup (safe to run every time)
+Base.metadata.create_all(bind=engine)
 
 
 # ============================================================

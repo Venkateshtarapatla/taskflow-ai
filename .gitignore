@@ -20,3 +20,5 @@ frontend/dist/
 
 # Local database
 *.db
+.coverage
+htmlcov/
